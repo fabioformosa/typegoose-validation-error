@@ -13,4 +13,10 @@ export class BarService {
     return await barModel.save();
   }
 
+
+  async getBar(){
+    let bar = await this.insertBar();
+    return await BarModel.findOne({_id: bar._id})
+  }
+
 }
