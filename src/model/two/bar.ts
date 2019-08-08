@@ -1,7 +1,10 @@
 import { prop, Typegoose } from 'typegoose';
 import * as mongoose from 'mongoose';
 
-export default class Bar extends Typegoose{
+export default class Bar extends Typegoose {
+
+  @prop({required : true})
+  fieldThree: string;
 
   @prop({required : true})
   fieldOne: string;
@@ -9,12 +12,9 @@ export default class Bar extends Typegoose{
   @prop({required : true})
   fieldTwo : string;
 
-  @prop({required : true})
-  fieldThree: string;
-
 }
 
 export const BarModel = new Bar().getModelForClass(Bar, {
   existingMongoose: mongoose,
-  schemaOptions: { collection: 'BarCollectionTwo' },
+  schemaOptions: { collection: 'BarCollection' },
 });

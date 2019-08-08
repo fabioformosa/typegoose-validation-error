@@ -22,10 +22,7 @@ export class AppService {
 
 
     const fooModel: InstanceType<Bar> = new FooModel(foo);
-    await fooModel.save();
-
-    Logger.debug('Saved foo!');
-    return foo;
+    return await fooModel.save();
   }
 
 }

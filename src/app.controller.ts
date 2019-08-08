@@ -1,27 +1,20 @@
-import { Controller, Get, Logger } from '@nestjs/common';
-import { AppService } from './app.service';
-import Bar, { BarModel } from './model/two/bar';
+import {Controller, Put} from '@nestjs/common';
+import {AppService} from './app.service';
+import {BarService} from './bar.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
-  @Get('/ciao')
-  async getCiao(){
-    const barTwo = new Bar();
-    barTwo.fieldOne = 'pippo';
-    barTwo.fieldTwo = 'gino';
-    barTwo.fieldThree = 'pino';
-    const barModel = new BarModel(barTwo);
-    await barModel.save();
+  constructor(private readonly appService: AppService, private readonly barService: BarService) {
   }
 
-  @Get('/hello')
-  async getHello() {
-    Logger.debug('Opening in controller...');
-    // return this.appService.getHello();
+  @Put('/bar')
+  async putBar() {
+    return this.barService.insertBar();
+  }
+
+  @Put('/foo')
+  async putFoo() {
     return this.appService.insertFoo();
   }
-
 
 }
