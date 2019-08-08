@@ -1,8 +1,8 @@
 import { Module, Logger } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { FooService } from './service/foo.service';
 import { MongoService } from './mongo.service';
-import {BarService} from './bar.service';
+import {BarService} from './service/bar.service';
 
 export const mongoServiceFactory = {
   provide: 'MongoService',
@@ -17,6 +17,6 @@ export const mongoServiceFactory = {
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [AppService, BarService, mongoServiceFactory],
+  providers: [FooService, BarService, mongoServiceFactory],
 })
 export class AppModule {}

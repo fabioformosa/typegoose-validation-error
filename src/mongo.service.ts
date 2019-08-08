@@ -10,8 +10,6 @@ export class MongoService {
     await mongoose.connect(dataSource, { useNewUrlParser: true });
     Logger.debug('Connected to datasource!');
     const mongoDB: mongoose.Connection = mongoose.connection;
-    // var db = mongoose.createConnection('mongodb://localhost/cj');
-    // db.once('open', function() { ... });
     mongoDB.once('open', () => Logger.debug(`Connected to MongoDB ${dataSource}`));
     mongoDB.on('error', error => Logger.debug(`Unexpected error connecting to MongoDB ${dataSource} due to ${error}`));
   }

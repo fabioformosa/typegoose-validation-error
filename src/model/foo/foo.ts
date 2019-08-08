@@ -1,11 +1,11 @@
 import { Typegoose, prop } from 'typegoose';
-import Bar from './one/bar';
+import Bar from './bar';
 import * as mongoose from 'mongoose';
 
 export default class Foo extends Typegoose {
 
   @prop()
-  a : string;
+  fieldOne : string;
 
   @prop({required:true, _id:false})
   bar : Bar;

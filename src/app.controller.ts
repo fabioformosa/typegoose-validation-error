@@ -1,10 +1,10 @@
 import {Controller, Put} from '@nestjs/common';
-import {AppService} from './app.service';
-import {BarService} from './bar.service';
+import {FooService} from './service/foo.service';
+import {BarService} from './service/bar.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService, private readonly barService: BarService) {
+  constructor(private readonly fooService: FooService, private readonly barService: BarService) {
   }
 
   @Put('/bar')
@@ -14,7 +14,7 @@ export class AppController {
 
   @Put('/foo')
   async putFoo() {
-    return this.appService.insertFoo();
+    return this.fooService.insertFoo();
   }
 
 }

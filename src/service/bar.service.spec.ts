@@ -1,8 +1,8 @@
 import {Test, TestingModule} from '@nestjs/testing';
-import {AppService} from './app.service';
+import {FooService} from './foo.service';
 import {BarService} from './bar.service';
 import * as mongoose from 'mongoose';
-import {mongoServiceFactory} from './app.module';
+import {mongoServiceFactory} from '../app.module';
 
 
 describe('BarService', () => {
@@ -10,7 +10,7 @@ describe('BarService', () => {
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      providers: [mongoServiceFactory, BarService, AppService ],
+      providers: [mongoServiceFactory, BarService, FooService ],
     }).compile();
     barService = app.get<BarService>(BarService);
   });

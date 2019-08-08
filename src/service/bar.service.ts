@@ -1,19 +1,15 @@
 import {Injectable} from '@nestjs/common';
-import Bar, {BarModel} from './model/two/bar';
-import {AppService} from './app.service';
+import Bar, {BarModel} from '../model/bar/bar';
 import {InstanceType} from 'typegoose';
 
 @Injectable()
 export class BarService {
 
-  // constructor(private readonly appService: AppService) {
-  // }
-
   async insertBar(): Promise<InstanceType<Bar>> {
-    const barTwo = new Bar();
-    barTwo.fieldOne = 'pippo';
-    barTwo.fieldThree = 'pino';
-    const barModel = new BarModel(barTwo);
+    const bar = new Bar();
+    bar.fieldOne = 'john';
+    bar.fieldThree = 'doe';
+    const barModel = new BarModel(bar);
     return await barModel.save();
   }
 
