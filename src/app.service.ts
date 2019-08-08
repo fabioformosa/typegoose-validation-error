@@ -7,19 +7,13 @@ import {BarService} from './bar.service';
 @Injectable()
 export class AppService {
 
-  constructor(private readonly barService: BarService) {
 
-  }
-
-  async insertFoo(){
+  async insertFoo():Promise<InstanceType<Bar>>{
     Logger.debug('Saving a foo...');
 
-
-    const retrievedBar = await this.barService.getBar();
-
     const bar = new Bar();
-    bar.fieldOne = retrievedBar.fieldOne;
-    bar.fieldTwo = retrievedBar.fieldTwo;
+    bar.fieldOne = 'fieldOne';
+    bar.fieldTwo = 'fieldTwo';
 
     const foo = new Foo();
     foo.bar = bar;
