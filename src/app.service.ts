@@ -21,7 +21,7 @@ export class AppService {
     foo.bar = bar;
 
 
-    const fooModel: InstanceType<Bar> = new FooModel(foo);
+    const fooModel: InstanceType<Foo> = new FooModel(foo);
     return await fooModel.save();
   }
 
