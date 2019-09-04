@@ -1,23 +1,14 @@
 import { Injectable, Logger } from '@nestjs/common';
-import Bar from '../model/foo/bar';
-import {InstanceType} from 'typegoose';
-import Foo, { FooModel } from '../model/foo/foo';
+import Bar, {BarModel} from '../model/foo/bar';
+import { Foo, FooModel } from '../model/foo/foo';
 
 @Injectable()
 export class FooService {
-
-  async insertFoo():Promise<InstanceType<Foo>>{
+  async insertFoo() {
     Logger.debug('Saving a foo...');
 
-    const bar = new Bar();
-    bar.fieldOne = 'fieldOne';
-    bar.fieldTwo = 'fieldTwo';
+    const bar = new BarModel({ fieldOne: 'fieldOne', fieldTwo: 'fieldTwo' } as Bar);
 
-    const foo = new Foo();
-    foo.bar = bar;
-
-    const fooModel: InstanceType<Foo> = new FooModel(foo);
-    return await fooModel.save();
+    return await FooModel.create({ bar: bar } as Foo);
   }
-
 }

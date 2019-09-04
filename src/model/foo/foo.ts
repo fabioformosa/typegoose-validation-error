@@ -1,18 +1,15 @@
-import { Typegoose, prop } from 'typegoose';
+import { prop, getModelForClass, modelOptions } from '@hasezoey/typegoose';
 import Bar from './bar';
-import * as mongoose from 'mongoose';
 
-export default class Foo extends Typegoose {
-
+@modelOptions({
+  schemaOptions: { collection: 'FooCollection' },
+})
+export class Foo {
   @prop()
-  fieldOne : string;
+  fieldOne? : string;
 
   @prop({required:true, _id:false})
-  bar : Bar;
-
+  bar! : Bar;
 }
 
-export const FooModel = new Foo().getModelForClass(Foo, {
-  existingMongoose: mongoose,
-  schemaOptions: { collection: 'FooCollection' },
-});
+export const FooModel = getModelForClass(Foo);

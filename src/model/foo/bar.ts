@@ -1,11 +1,11 @@
-import {prop} from 'typegoose';
+import {prop, getModelForClass, modelOptions} from '@hasezoey/typegoose';
 
 export default class Bar {
-
   @prop({required: true})
-  fieldOne: string;
+  fieldOne!: string;
 
   @prop({required : true})
-  fieldTwo : string;
-
+  fieldTwo! : string;
 }
+
+export const BarModel = getModelForClass(Bar);
