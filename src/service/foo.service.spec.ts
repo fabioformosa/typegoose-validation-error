@@ -18,6 +18,12 @@ describe('FooService', () => {
   });
 
   it('insertFoo', async () => {
-    await expect(fooService.insertFoo()).resolves.toBeDefined();
+    // await expect(fooService.insertFoo()).resolves.toBeDefined();
+
+    const fooDocument = await fooService.insertFoo();
+    expect(fooDocument).toBeDefined();
+    expect(fooDocument.bar).toBeDefined();
+    expect(fooDocument.bar.fieldOne).toEqual('fieldOne');
+
   });
 });
