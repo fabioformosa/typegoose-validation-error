@@ -5,13 +5,13 @@ import { Logger } from '@nestjs/common';
 export class MongoService {
   public async connect(): Promise<void> {
     Logger.debug('MongoDB In Memory connecting...');
-    Logger.debug(`Got datasource! mongodb://localhost:27017/ `);
-    await mongoose.connect(`mongodb://localhost:27017/`, { useNewUrlParser: true, dbName: 'typegooseTest' });
+    // Logger.debug(`Got datasource! mongodb://localhost:27017/ `);
+    await mongoose.connect(`mongodb://localhost:27017/`, { useNewUrlParser: true, dbName: 'typegoose-validation-repo' });
     // const dataSource = await this.getDataSource();
     // Logger.debug(`Got datasource! ${dataSource} `);
     // await mongoose.connect(dataSource, { useNewUrlParser: true });
     Logger.debug('Connected to datasource!');
-    const mongoDB: mongoose.Connection = mongoose.connection;
+    // const mongoDB: mongoose.Connection = mongoose.connection;
     // mongoDB.once('open', () => Logger.debug(`Connected to MongoDB ${dataSource}`));
     // mongoDB.on('error', error => Logger.debug(`Unexpected error connecting to MongoDB ${dataSource} due to ${error}`));
   }
