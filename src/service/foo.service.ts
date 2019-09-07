@@ -1,8 +1,8 @@
-import { Injectable, Logger, Inject } from '@nestjs/common';
-import {Bar as Bar2} from '../model/bar/bar';
+import { Injectable, Inject } from '@nestjs/common';
 import Bar, { BarModel } from '../model/foo/bar';
 import { Foo, FooModel } from '../model/foo/foo';
 import { BarService } from './bar.service';
+import { decoratorCache } from '@hasezoey/typegoose/lib/internal/data';
 
 @Injectable()
 export class FooService {
@@ -12,9 +12,10 @@ export class FooService {
   }
 
   async insertFoo() {
-    Logger.debug('Saving a foo...');
+    console.log('Saving a foo...');
 
    const bar = new BarModel({ fieldOne: 'fieldOne', fieldTwo: 'fieldTwo' } as Bar);
+    console.log('schema', decoratorCache);
 
    return await FooModel.create({ bar: bar } as Foo);
 

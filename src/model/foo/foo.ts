@@ -1,5 +1,4 @@
 import { prop, getModelForClass, modelOptions } from '@hasezoey/typegoose';
-import {Bar as Bar2} from '../bar/bar';
 import Bar from './bar';
 
 @modelOptions({

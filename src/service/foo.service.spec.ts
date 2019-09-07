@@ -21,9 +21,10 @@ describe('FooService', () => {
   });
 
   it('insertFoo', async () => {
+    mongoose.set('debug', true);
     // await expect(fooService.insertFoo()).resolves.toBeDefined();
 
-    let bar = barService.insertAndRetrieveOneBar();
+    // let bar = barService.insertAndRetrieveOneBar();
 
     const fooDocument = await fooService.insertFoo();
     expect(fooDocument).toBeDefined();
