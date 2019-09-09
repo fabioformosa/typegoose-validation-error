@@ -30,11 +30,15 @@ describe('FooService', () => {
     expect(fooDocument).toBeDefined();
     expect(fooDocument.bar).toBeDefined();
     expect(fooDocument.bar.fieldOne).toEqual('fieldOne');
+    expect(fooDocument.bar2.fieldOne).toEqual('fieldOne');
+    expect(fooDocument.bar2.fieldThree).toEqual('fieldThree');
 
     const retrievedFoo = await fooService.retrieveById(fooDocument._id);
     expect(retrievedFoo).toBeDefined();
     expect(retrievedFoo.bar).toBeDefined();
     expect(retrievedFoo.bar.fieldOne).toEqual('fieldOne');
+    expect(retrievedFoo.bar2.fieldOne).toEqual('fieldOne');
+    expect(retrievedFoo.bar2.fieldThree).toEqual('fieldThree');
 
   });
 });

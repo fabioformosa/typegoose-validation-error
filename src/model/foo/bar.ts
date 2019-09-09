@@ -1,6 +1,6 @@
 import {prop, getModelForClass, modelOptions} from '@hasezoey/typegoose';
 
-@modelOptions({ schemaOptions: { _id: false } })
+@modelOptions({ schemaOptions: { _id: false }, options:{customName: 'bar1'} })
 export default class Bar {
   @prop({required: true})
   fieldOne!: string;
@@ -9,4 +9,4 @@ export default class Bar {
   fieldTwo! : string;
 }
 
-export const BarModel = getModelForClass(Bar);
+// export const BarModel = getModelForClass(Bar);
